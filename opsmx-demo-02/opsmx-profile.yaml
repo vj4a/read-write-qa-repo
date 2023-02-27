@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: opsmx-profile
+type: Opaque
+data:
+  cdIntegration: dHJ1ZQ==
+  sourceName: cmVhZC13cml0ZS1xYQ==
+  opsmxIsdUrl: aHR0cHM6Ly9pc2Q0MTIuY2FuaXMuaXNkLm9wc214Lm9yZw==
+  user: YWRtaW4=

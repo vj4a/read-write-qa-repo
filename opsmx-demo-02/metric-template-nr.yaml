@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metrictemplate-nr
+data: 
+  metrictemplate-nr: |
+    {
+     "filterKey": "${app_key},${host_key}",
+     "data": {
+       "percent_diff_threshold": "hard",
+        "isNormalize": false,
+        "groups": [
+         {
+          "metrics": [
+            {
+              "metricType": "ADVANCED",
+              "metricWeight": 1,
+              "nanStrategy": "Remove",
+              "accountName": "opsmx-newrelic",
+              "riskDirection": "HigherOrLower",
+              "customThresholdHigher": 80,
+              "name": "SELECT (average(apm.service.memory.physical) * rate(count(apm.service.instance.count), 1 minute)) / 1000 as memoryUsage FROM Metric WHERE (appName = '${app_key}' AND host RLIKE '.*${host_key}.*')",
+              "criticality": "Normal",
+              "customThresholdLower": 80,
+              "watchlist": false
+            }
+          ],
+          "group": "Memory Usage"
+        },
+         {
+          "metrics": [
+            {
+              "metricType": "ADVANCED",
+              "metricWeight": 1,
+              "nanStrategy": "Remove",
+              "accountName": "opsmx-newrelic",
+              "riskDirection": "HigherOrLower",
+              "customThresholdHigher": 80,
+              "name": "SELECT average(duration)*1000 FROM Transaction WHERE appName = '${app_key}' AND host RLIKE '.*${host_key}.*'",
+              "criticality": "Normal",
+              "customThresholdLower": 80,
+              "watchlist": false
+            }
+          ],
+          "group": "Transaction Time"
+        },
+         {
+          "metrics": [
+            {
+              "metricType": "ADVANCED",
+              "metricWeight": 1,
+              "nanStrategy": "Remove",
+              "accountName": "opsmx-newrelic",
+              "riskDirection": "HigherOrLower",
+              "customThresholdHigher": 80,
+              "name": "SELECT percentile(duration, 95) * 1000 FROM Transaction WHERE appName='${app_key}' AND host RLIKE '.*${host_key}.*'",
+              "criticality": "Normal",
+              "customThresholdLower": 80,
+              "watchlist": false
+            }
+          ],
+          "group": "95th Percentile"
+        },
+         {
+          "metrics": [
+            {
+              "metricType": "ADVANCED",
+              "metricWeight": 1,
+              "nanStrategy": "Remove",
+              "accountName": "opsmx-newrelic",
+              "riskDirection": "HigherOrLower",
+              "customThresholdHigher": 50,
+              "name": "SELECT count(apm.service.error.count) / count(apm.service.transaction.duration) FROM Metric WHERE appName = '${app_key}' AND host RLIKE '.*${host_key}.*'",
+              "criticality": "Normal",
+              "customThresholdLower": 50,
+              "watchlist": false
+            }
+          ],
+          "group": "Error Rate"
+        }        
+      ]
+    },
+    "templateName": "metrictemplate",
+    "isEdit": true,
+    "advancedProvider": "NEWRELIC"
+    }
