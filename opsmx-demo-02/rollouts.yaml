@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: opsmx-demo
-        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1417
+        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1418
         ports:
           - containerPort: 8088
         env:
