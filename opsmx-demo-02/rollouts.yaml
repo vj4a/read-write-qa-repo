@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: opsmx-demo
 spec:
-  replicas: 1
+  replicas: 6
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: opsmx-demo
-        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1419
+        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1420
         ports:
           - containerPort: 8088
         env:
