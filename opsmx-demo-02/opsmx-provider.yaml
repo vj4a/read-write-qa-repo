@@ -4,7 +4,7 @@ metadata:
   name: opsmx-provider-config
 data:
   providerConfig: |
-    application: verification-demo
+    application: sample-automated-analysis
     lifetimeMinutes: 05
     gitops: true
     passScore: 60
