@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: opsmx-demo
-        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1421
+        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1421    #Change the image version to trigger a rollout. Versions from 1420 - 1430 are available.
         ports:
           - containerPort: 8088
         env:
@@ -37,7 +37,7 @@ spec:
           stableIngress: opsmx-demo-ing
       steps:
       - setWeight: 25
-      - pause: { duration: 120s }
+      - pause: { duration: 60s }
       - analysis:
           templates:
             - templateName: opsmx-newrel-tmpl
@@ -50,7 +50,7 @@ spec:
               valueFrom:
                 podTemplateHashValue: Stable
       - setWeight: 75
-      - pause: { duration: 120s }
+      - pause: { duration: 60s }
       - analysis:
           templates:
             - templateName: opsmx-newrel-tmpl
