@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: prometheus-rollouts-demo
-        image: argoproj/rollouts-demo:blue
+        image: argoproj/rollouts-demo:blue            #image can be either argoproj/rollouts-demo:blue or argoproj/rollouts-demo:green
         ports:
         - name: http
           containerPort: 8080
