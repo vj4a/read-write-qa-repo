@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: prometheus-rollouts-demo
 spec:
-  replicas: 5
+  replicas: 1
   strategy:
     canary:
       canaryService: prometheus-rollouts-demo-canary
