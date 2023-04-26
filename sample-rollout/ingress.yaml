@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: rw-prometheus-rollout.demo-target.opsmx.org
+    - host: prom.demo-target.opsmx.org
       http:
         paths:
           - path: /
