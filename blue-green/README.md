@@ -28,3 +28,5 @@ argocd app patch-resource blue-green --kind Rollout --resource-name blue-green-h
 ```
 
 This promotes `ks-guestbook-demo:0.2` to `green` status and `Rollout` deletes old replica which runs `ks-guestbook-demo:0.1`.
+
+for testing purpose
