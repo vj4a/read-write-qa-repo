@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: opsmx-demo
-        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1422    #Change the image version to trigger a rollout. Versions from 1420 - 1430 are available.
+        image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1423    #Change the image version to trigger a rollout. Versions from 1420 - 1430 are available.
         ports:
           - containerPort: 8088
         env:
